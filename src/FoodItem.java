@@ -11,4 +11,9 @@ public class FoodItem {
     public double getWeight() {
         return weight;
     }
+
+    public void print()
+    {
+        System.out.println( name+", type: "+ typeOfFood+" gewicht: "+ weight);
+    }
 }

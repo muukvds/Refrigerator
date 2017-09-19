@@ -56,5 +56,19 @@ public class Refrigerator {
         {System.out.println("food item not added");}
     }
 
+    public void open()
+    {
+        for (FoodItem foodItem:vegetableDrawer)
+        {
+            foodItem.print();
+        }
+        for(FoodItem foodItem:refrigeratorSpace)
+        {
+            foodItem.print();
+        }
+
+    }
+
+
 
 }
