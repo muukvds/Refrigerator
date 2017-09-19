@@ -7,4 +7,8 @@ public class FoodItem {
     public String getTypeOfFood() {
         return typeOfFood;
     }
+
+    public double getWeight() {
+        return weight;
+    }
 }

@@ -16,15 +16,45 @@ public class Refrigerator {
     }
 
     public void addToVegetableDrawer(FoodItem foodItem) {
+        boolean vegetableAdded = false;
         if (foodItem.getTypeOfFood().equals("vegetable")) {
             for (int i = 0; i < vegetableDrawer.length; i++) {
-                if (vegetableDrawer[i] != null) {
-                    vegetableDrawer[i] = foodItem;
-                    break;
+                if (!vegetableAdded) {
+                    if (vegetableDrawer[i] != null) {
+                        vegetableDrawer[i] = foodItem;
+                        vegetableAdded = true;
+                    }
                 }
             }
         } else {
-            System.out.println("Can only add vegetable.");
+            System.out.println("food item not added");
         }
+        if(!vegetableAdded)
+        {System.out.println("food item not added");}
     }
+
+    public void addToRefrigerator(FoodItem foodItem) {
+        boolean foodAdded = false;
+        double weight =0;
+            for (int i = 0; i < refrigeratorSpace.length; i++) {
+                if (!foodAdded) {
+                    if (refrigeratorSpace[i] != null) {
+                        if(weight + foodItem.getWeight() < 17)
+                        {
+                            refrigeratorSpace[i] = foodItem;
+                            foodAdded = true;
+                        }
+                        else{
+                            System.out.println("food over weight");
+                        }
+                    }
+                    else{ weight += refrigeratorSpace[i].getWeight();}
+                }
+            }
+
+        if(!foodAdded)
+        {System.out.println("food item not added");}
+    }
+
+
 }
