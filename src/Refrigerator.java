@@ -70,6 +70,7 @@ public class Refrigerator {
 
     public void getDrinks()
     {
+        System.out.println("Drinks:");
         for(FoodItem foodItem:refrigeratorSpace)
         {
             if(foodItem.getTypeOfFood().equals("drink"))
