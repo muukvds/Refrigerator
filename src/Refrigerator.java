@@ -20,66 +20,67 @@ public class Refrigerator {
         if (foodItem.getTypeOfFood().equals("vegetable")) {
             for (int i = 0; i < vegetableDrawer.length; i++) {
                 if (!vegetableAdded) {
-                    if (vegetableDrawer[i] != null) {
+                    if (vegetableDrawer[i] == null) {
                         vegetableDrawer[i] = foodItem;
                         vegetableAdded = true;
                     }
                 }
             }
         } else {
-            System.out.println("food item not added");
+            System.out.println("food item not a vegetable");
         }
-        if(!vegetableAdded)
-        {System.out.println("food item not added");}
+        if (!vegetableAdded) {
+            System.out.println("vegetableDrawer is full");
+        }
     }
 
     public void addToRefrigerator(FoodItem foodItem) {
         boolean foodAdded = false;
-        double weight =0;
-            for (int i = 0; i < refrigeratorSpace.length; i++) {
-                if (!foodAdded) {
-                    if (refrigeratorSpace[i] != null) {
-                        if(weight + foodItem.getWeight() < 17)
-                        {
-                            refrigeratorSpace[i] = foodItem;
-                            foodAdded = true;
-                        }
-                        else{
-                            System.out.println("food over weight");
-                        }
+        double weight = 0;
+        for (int i = 0; i < refrigeratorSpace.length; i++) {
+            if (!foodAdded) {
+                if (refrigeratorSpace[i] == null) {
+                    if (weight + foodItem.getWeight() < 17) {
+                        refrigeratorSpace[i] = foodItem;
+                        foodAdded = true;
+                    } else {
+                        System.out.println("food over weight");
                     }
-                    else{ weight += refrigeratorSpace[i].getWeight();}
+                } else {
+                    weight += refrigeratorSpace[i].getWeight();
                 }
             }
-
-        if(!foodAdded)
-        {System.out.println("food item not added");}
-    }
-
-    public void open()
-    {
-        for (FoodItem foodItem:vegetableDrawer)
-        {
-            foodItem.print();
         }
-        for(FoodItem foodItem:refrigeratorSpace)
-        {
-            foodItem.print();
+
+        if (!foodAdded) {
+            System.out.println("refrigeratorSpace is full");
         }
     }
 
-    public void getDrinks()
-    {
-        System.out.println("Drinks:");
-        for(FoodItem foodItem:refrigeratorSpace)
-        {
-            if(foodItem.getTypeOfFood().equals("drink"))
-            {
+    public void open() {
+        for (FoodItem foodItem : vegetableDrawer) {
+            if (foodItem != null) {
+                foodItem.print();
+            }
+        }
+        for (FoodItem foodItem : refrigeratorSpace) {
+            if (foodItem != null) {
                 foodItem.print();
             }
         }
     }
 
+    public void getDrinks() {
+        System.out.println("Drinks:");
+        for (FoodItem foodItem : refrigeratorSpace) {
+            if (foodItem != null)
+            {
+                if (foodItem.getTypeOfFood().equals("drink")) {
+                    foodItem.print();
+                }
+            }
+        }
+    }
 
 
 }
