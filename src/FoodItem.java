@@ -4,5 +4,7 @@ public class FoodItem {
     private String typeOfFood;
     private double weight;
 
-
+    public String getTypeOfFood() {
+        return typeOfFood;
+    }
 }
