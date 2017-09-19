@@ -66,7 +66,17 @@ public class Refrigerator {
         {
             foodItem.print();
         }
+    }
 
+    public void getDrinks()
+    {
+        for(FoodItem foodItem:refrigeratorSpace)
+        {
+            if(foodItem.getTypeOfFood().equals("drink"))
+            {
+                foodItem.print();
+            }
+        }
     }
 
 
